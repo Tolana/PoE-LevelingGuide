@@ -1,0 +1,112 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 80px;
+}
+
+.App-header {
+  background-color: #222;
+  height: 150px;
+  padding: 20px;
+  color: white;
+}
+
+.App-title {
+  font-size: 1.5em;
+}
+
+.App-intro {
+  font-size: large;
+}
+
+@keyframes App-logo-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.Collapsed {
+  height: 35px;
+  color: green !important;
+  margin-bottom: 10px;
+  overflow: hidden;
+}
+
+
+.Step{
+  border-radius: 25px;
+  background-color: rgb(24, 33, 33);
+  width: 50%;
+  margin-left: 15%;
+  margin-bottom: 10px;
+  border: 2px solid;
+  border-color:darkslategrey;
+  overflow: hidden;
+}
+
+.Step-top {
+  width: 100%;
+  padding: 10px;
+  color: white;
+  font-weight: bold;
+}
+
+.Step-top p {
+  display: inline;
+}
+
+.Step-middle {
+  width: 100%;
+  border-top: 2px solid;
+  border-bottom: 2px solid;
+  color: white;
+  border-color:darkslategrey; 
+}
+
+
+.Step-bottom {
+  font-weight: bold;
+  padding: 10px;
+  display: table;
+  width: 100%;
+}
+
+.Step-target {
+  width: 50%;
+  display: table-cell;
+  margin-bottom: 5px;
+}
+
+.Step-target p {
+  display: inline;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+.Step-connections {
+  width: 50%;
+  display: table-cell;
+  margin-bottom: 5px;
+}
+
+.Step-connections p {
+  display: inline;
+  margin-left: 5px;
+  margin-right: 5px;
+  color: limegreen;
+}
+
+#conn {
+  color: orange;
+}
+
+#way {
+  color: orange;
+}
+
+#step-goal {
+  color: orange;
+}
+
