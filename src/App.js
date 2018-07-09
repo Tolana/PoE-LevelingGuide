@@ -1,9 +1,106 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 
 
+class EditGuide extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      groups: []
+    }
+  }
+  handleClick = () => {
+    const groupsNum = this.state.groups.length;
+    const group = {
+      groupNumber: groupsNum+1
+    } 
+    const newGroups = this.state.groups.concat(group);
+    console.log('newGroups: ',newGroups);
+    this.setState(
+      {
+        groups: newGroups
+      },
+      function() {
+        console.log(this.state.groups);
+      }
+    )
+  }
 
+  deleteGroup = (num) => {
+    console.log("BeforeDelete: ",this.state.groups)
+    const index = num-1;
+    console.log("index: ", index);
+    var curGroups = this.state.groups;
+    var newGroups = curGroups.splice(index,1);
+    this.setState(
+      {
+        groups: newGroups
+      },
+      function() {
+        console.log(this.state.groups);
+      }
+    );
+  }
+
+  render() {
+    const listGroups = this.state.groups.map((Obj) =>
+      <div key={Obj.groupNumber} className="editGroup">
+        <EditGroup key={Obj.groupNumber} groupNum={Obj.groupNumber} />
+        <button onClick={() => this.deleteGroup(Obj.groupNumber)}>
+          delete group
+        </button>
+      </div>
+    );
+    return (
+      <div>
+        {listGroups}
+        <button onClick={this.handleClick}>
+          add Group
+        </button>
+      </div>
+    )
+  }
+}
+
+class EditGroup extends Component {
+  constructor(props) {
+    super(props)
+  }
+  render() {
+    return (
+      <p>i return {this.props.groupNum} </p>
+    )
+  }
+}
+
+
+
+class EditStep extends Component {
+  constructor(props) {
+    super(props)
+
+  }
+  render() {
+    return (
+    <form onSubmit={this.handleSubmit}>
+      <label>
+        Goal:
+        <input type="text"></input>
+      </label>
+    </form>
+    )
+  }
+}
+
+
+class StorageSlot extends Component {
+  constructor(props) {
+    super(props)
+  }
+  render() {
+    return <p> i return </p>
+  }
+}
 
 
 
@@ -12,9 +109,8 @@ class CollapseExpand extends Component {
   constructor(props) {
     super(props);
     this.state = {collapse: false}
-    this.toggleState = this.toggleState.bind(this);
   }
-  toggleState() {
+  toggleState = () => {
     this.setState({collapse: !this.state.collapse});
   }
   render() {
@@ -99,7 +195,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-       <StepGroup steps={steps} /> 
+       <EditGuide />
       </div>
     );
   }
